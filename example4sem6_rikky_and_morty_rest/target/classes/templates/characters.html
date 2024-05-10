@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Rick and Morty api</title>
+  <link th:href="@{/static/style.css}" rel="stylesheet">
+</head>
+<body>
+<h1 class="center">Rick and Morty Characters</h1>
+
+<p class="center">  <img th:src="@{/static/logo.jpg}" alt="Logo"/></p>
+<h2 class="center">Все персонажи мультсериала</h2>
+<span><b>Отсортировать по:</b></span>&nbsp;
+<a th:href="@{/characters/sortedbyname}" class="button2">Имя (a-z)</a>&nbsp;&nbsp;&nbsp;
+<a th:href="@{/characters/sortedbygender}" class="button2">Пол (м-ж)</a>&nbsp;&nbsp;&nbsp;
+<a th:href="@{/characters}" class="button2">id</a>
+
+<div class="content">
+  <div th:each="c : ${characters}" class="item">
+    <img th:src="${c.image}" alt="Изображение отсутствует"/>
+    <div class="item-info">на
+      <h3 th:text="${c.id}"></h3>
+      <h3 th:text="${c.name}"></h3>
+      <a th:href="@{/characters/{id}(id=${c.id})}" class="button">Выбрать</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,8 @@
+api:
+  character:
+    url: "https://rickandmortyapi.com/api/character"
+
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
